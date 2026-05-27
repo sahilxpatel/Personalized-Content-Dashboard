@@ -1,0 +1,32 @@
+[
+  {
+    "id": "social-1",
+    "author": "Nia Rivera",
+    "title": "How AI is changing weekend productivity",
+    "body": "I replaced my Sunday planning spreadsheet with a workflow board and reduced task spillover by 42%.",
+    "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["productivity", "technology"],
+    "createdAt": "2026-05-20T11:00:00.000Z",
+    "likes": 128
+  },
+  {
+    "id": "social-2",
+    "author": "Marcus Lee",
+    "title": "The rise of creator-owned sports media",
+    "body": "Fans are now paying for direct athlete storytelling, and the engagement numbers are outperforming network clips.",
+    "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["sports", "media"],
+    "createdAt": "2026-05-21T15:24:00.000Z",
+    "likes": 223
+  },
+  {
+    "id": "social-3",
+    "author": "Amina Patel",
+    "title": "Finance communities are adopting short-form explainers",
+    "body": "People consume 90-second market explainers more than long threads during volatile trading sessions.",
+    "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["finance", "education"],
+    "createdAt": "2026-05-23T09:30:00.000Z",
+    "likes": 164
+  }
+]
