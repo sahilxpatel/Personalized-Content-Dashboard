@@ -4,11 +4,11 @@ Project Document
 
 ## Paste URL
 
-Deployed project URL: **\*\***\*\***\*\***https://personalized-content-dashboard-alpha.vercel.app/******\*\**\*\*\***
+Deployed project URL: https://personalized-content-dashboard-alpha.vercel.app/
 
 ## Overview
 
-Personalized Content Dashboard is a production-style Next.js application that aggregates personalized news, movie recommendations, and mocked social content into one responsive interface. The goal is to help users discover, reorder, favorite, and filter content while keeping the experience fast, accessible, and visually polished.
+Personalized Content Dashboard is a production-style Next.js application that aggregates personalized news, movie recommendations, and mocked social content into a unified responsive dashboard. The application focuses on discoverability, personalization, drag-and-drop customization, persistent preferences, and modern UI/UX patterns.
 
 ## Tech Stack
 
@@ -83,8 +83,10 @@ Create a local environment file with API keys before running the app in full mod
 
 The project includes support files for Vercel, Docker, and GitHub Actions CI.
 
+Live deployment is hosted on Vercel.
+
 ## Notes
 
-- This project is designed to be production-ready but uses client-visible environment variables for simplicity.
-- For a real deployment, move secret API handling behind a server-side proxy.
+- This project is designed to be production-ready and uses server-side proxy endpoints for handling external API requests securely.
+- Environment variables are managed through hosting platform configuration and are not committed to the repository.
 - The README contains the longer project document; this file is a compact submission-ready version with a URL placeholder.
