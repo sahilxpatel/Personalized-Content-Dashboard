@@ -2,6 +2,7 @@
 
 import { AuthMockCard } from "@/components/dashboard/AuthMockCard";
 import { SettingsPanel } from "@/components/dashboard/SettingsPanel";
+import { FavoritesPanel } from "@/components/dashboard/FavoritesPanel";
 import { Button } from "@/components/ui/Button";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
@@ -26,7 +27,10 @@ export default function SettingsPage() {
 
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <SettingsPanel />
-        <AuthMockCard />
+        <div className="space-y-6">
+          <FavoritesPanel />
+          <AuthMockCard />
+        </div>
       </div>
     </div>
   );
