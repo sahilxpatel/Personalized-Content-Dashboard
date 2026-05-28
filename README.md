@@ -23,10 +23,23 @@ copy .env.example .env.local
 
 Required env vars (minimum):
 
-- `NEXT_PUBLIC_NEWS_API_URL` (e.g. https://gnews.io/api/v4)
-- `NEXT_PUBLIC_NEWS_API_KEY` (GNews token)
-- `NEXT_PUBLIC_TMDB_API_URL` (e.g. https://api.themoviedb.org/3)
-- `NEXT_PUBLIC_TMDB_API_KEY`
+- Client-side (development/demo):
+  - `NEXT_PUBLIC_NEWS_API_URL` (e.g. https://gnews.io/api/v4)
+  - `NEXT_PUBLIC_NEWS_API_KEY` (GNews token — only for demo; rotate for production)
+  - `NEXT_PUBLIC_TMDB_API_URL` (e.g. https://api.themoviedb.org/3)
+  - `NEXT_PUBLIC_TMDB_API_KEY`
+
+- Server-side (recommended — keep these private and set in your hosting provider):
+  - `NEWS_API_KEY` — GNews API token (server-only)
+  - `TMDB_API_KEY` — TMDB API key (server-only)
+
+Notes:
+- `.env.local` was removed from the repository to avoid accidental exposure of real keys. If you previously committed keys, rotate them immediately.
+- This project includes example server-side proxy endpoints:
+  - `/api/proxy/news` — forwards requests to the GNews API using `NEWS_API_KEY` (server-only)
+  - `/api/proxy/tmdb` — forwards requests to the TMDB API using `TMDB_API_KEY` (server-only)
+
+Use those proxy endpoints in production to avoid shipping secrets to the client.
 
 3. Run locally
 
