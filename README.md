@@ -133,12 +133,6 @@ This repo uses `NEXT_PUBLIC_` env variables for demonstration. For production:
 - Docker: `Dockerfile` included for containerized runs.
 - CI: GitHub Actions flows are in `.github/workflows/ci.yml`.
 
-### Recent build & CI notes
-
-- The GitHub Actions workflow was updated to use Node.js 22 and `npm install` (rather than `npm ci`) to avoid lockfile/workspace install errors that can occur in CI environments.
-- A pages-based `500` error page (`src/pages/500.js`) was added as a lightweight fail-safe so Next.js will generate `500.html` during export on some hosts. This prevents an ENOENT rename error observed in some build environments.
-- If you encounter Vercel build failures after these changes, try clearing the Vercel build cache and re-deploying.
-
 ### Security / Environment
 
 - `.env.local` was removed from the repository to prevent accidental secret leakage. Set the following server env vars in your hosting provider (Vercel) for the server proxy endpoints to work:
