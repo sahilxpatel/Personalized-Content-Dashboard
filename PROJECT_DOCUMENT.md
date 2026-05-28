@@ -4,7 +4,7 @@ Project Document
 
 ## Paste URL
 
-Deployed project URL: **************\_\_\_\_**************
+Deployed project URL: **************https://personalized-content-dashboard-alpha.vercel.app/**************
 
 ## Overview
 

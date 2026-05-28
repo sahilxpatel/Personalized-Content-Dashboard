@@ -139,5 +139,3 @@ If you approve, I will remove the `playwright-report/` and `test-results/.last-r
 
 ---
 
-If you'd like me to proceed and remove the proposed files, reply `Yes — remove these files` and I'll delete them and run a quick build/test to confirm nothing breaks.
-

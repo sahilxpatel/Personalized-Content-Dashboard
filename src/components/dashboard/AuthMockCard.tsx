@@ -1,10 +1,13 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+
 import { Button } from "@/components/ui/Button";
 import { useModal } from "@/components/ui/ModalProvider";
 import { useToast } from "@/components/ui/ToastProvider";
 
 export const AuthMockCard = () => {
+  const { t } = useTranslation();
   const { notify } = useToast();
   const { openModal } = useModal();
 
@@ -13,7 +16,7 @@ export const AuthMockCard = () => {
     openModal(
       <div className="space-y-3">
         <p className="text-sm text-foreground/75">
-          This is a placeholder auth flow for the internship assignment. Wire it to NextAuth or your provider later.
+          {t("authDescription")}
         </p>
         <ul className="list-disc space-y-1 pl-5 text-sm text-foreground/65">
           <li>SSO button is active</li>
@@ -39,14 +42,14 @@ export const AuthMockCard = () => {
 
   return (
     <section className="rounded-2xl border border-border bg-surface p-5">
-      <h3 className="text-lg font-semibold">Authentication (Mock)</h3>
+      <h3 className="text-lg font-semibold">{t("authTitle")}</h3>
       <p className="mt-2 text-sm text-foreground/70">
-        This UI simulates enterprise SSO controls. Wire it to your auth provider for production.
+        {t("authDescription")}
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
-        <Button onClick={onSignInMock}>Sign in with SSO</Button>
+        <Button onClick={onSignInMock}>{t("authSignIn")}</Button>
         <Button variant="secondary" onClick={onManageSessions}>
-          Manage sessions
+          {t("authManageSessions")}
         </Button>
       </div>
     </section>
