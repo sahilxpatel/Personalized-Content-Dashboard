@@ -1,5 +1,7 @@
 # Personalized Content Dashboard — Project Document
 
+Live demo: https://personalized-content-dashboard-alpha.vercel.app/
+
 This repository contains a production-ready, single-page dashboard application that aggregates personalized content (news, movie recommendations, and social signals) and provides a lightweight UX for curation, ordering and discovery.
 
 This document explains: quick setup, developer workflows, architecture, key files and decisions, testing and deployment guidance.
@@ -125,6 +127,7 @@ I recommend removing the following developer artifacts to keep the repo tidy (I 
 - `test-results/.last-run.json` — CI/test artifact
 
 Optional (keep if you rely on them):
+
 - `package-lock.json` — lockfile for npm (keep for reproducible installs) — do not remove unless you prefer Yarn/PNPM
 
 If you approve, I will remove the `playwright-report/` and `test-results/.last-run.json` files now.
@@ -133,9 +136,8 @@ If you approve, I will remove the `playwright-report/` and `test-results/.last-r
 
 - Run `npm run lint` and `npm run test` before opening PRs.
 - If you'd like, I can also:
-	- Remove the proposed files now.
-	- Add a small CONTRIBUTING.md and PR checklist.
-	- Add a server-side proxy example to hide API keys.
+  - Remove the proposed files now.
+  - Add a small CONTRIBUTING.md and PR checklist.
+  - Add a server-side proxy example to hide API keys.
 
 ---
-
