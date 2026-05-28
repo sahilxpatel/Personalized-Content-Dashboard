@@ -7,13 +7,14 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { toggleFavorite, clearFavorites } from "@/features/favorites/favoritesSlice";
 import { selectOrderedContent } from "@/features/content/contentSlice";
 import { useModal } from "@/components/ui/ModalProvider";
+import { ContentItem } from "@/types/content";
 import Link from "next/link";
 
 export const FavoritesPanel = () => {
   const dispatch = useAppDispatch();
   const favoriteIds = useAppSelector((s) => s.favorites.ids);
   const allItems = useAppSelector(selectOrderedContent);
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
 
   const favorites = allItems.filter((i) => favoriteIds.includes(i.id));
 
@@ -40,7 +41,7 @@ export const FavoritesPanel = () => {
     );
   };
 
-  const onView = (item: any) => {
+  const onView = (item: ContentItem) => {
     openModal(
       <div className="space-y-4">
         <div className="overflow-hidden rounded-xl border border-border/60">

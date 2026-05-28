@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     const res = await fetch(apiUrl);
     const data = await res.json();
     return NextResponse.json(data, { status: res.status });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: 'Proxy fetch failed' }, { status: 502 });
   }
 }
