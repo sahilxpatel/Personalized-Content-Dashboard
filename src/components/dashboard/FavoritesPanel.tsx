@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { toggleFavorite, clearFavorites } from "@/features/favorites/favoritesSlice";
 import { selectOrderedContent } from "@/features/content/contentSlice";
 import { useModal } from "@/components/ui/ModalProvider";
+import Link from "next/link";
 
 export const FavoritesPanel = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +18,26 @@ export const FavoritesPanel = () => {
   const favorites = allItems.filter((i) => favoriteIds.includes(i.id));
 
   const onClear = () => {
-    dispatch(clearFavorites());
+    openModal(
+      <div className="space-y-4">
+        <p className="text-sm text-foreground/75">Are you sure you want to remove all favorites? This action cannot be undone.</p>
+        <div className="flex justify-end gap-2">
+          <Button variant="secondary" onClick={() => closeModal()}>
+            Cancel
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              dispatch(clearFavorites());
+              closeModal();
+            }}
+          >
+            Clear all
+          </Button>
+        </div>
+      </div>,
+      "Confirm clear all",
+    );
   };
 
   const onView = (item: any) => {
@@ -30,6 +50,15 @@ export const FavoritesPanel = () => {
           <p className="text-sm text-foreground/60">{item.source}</p>
           <p className="text-base leading-6 text-foreground/80">{item.description}</p>
         </div>
+        {item.url ? (
+          <div className="mt-2">
+            <Button asChild className="w-full" variant="primary">
+              <Link href={item.url} rel="noreferrer" target="_blank">
+                Open source
+              </Link>
+            </Button>
+          </div>
+        ) : null}
       </div>,
       item.title,
     );
@@ -56,7 +85,17 @@ export const FavoritesPanel = () => {
       </div>
       <div className="mt-4 space-y-3">
         {favorites.map((item) => (
-          <div key={item.id} className="flex items-center justify-between gap-3 rounded-lg border border-border/40 bg-background p-3">
+          <div
+            key={item.id}
+            className="flex items-center justify-between gap-3 rounded-lg border border-border/40 bg-background p-3"
+            role="group"
+            tabIndex={0}
+            aria-label={`Favorite: ${item.title}`}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") onView(item);
+              if (e.key === "Delete") dispatch(toggleFavorite(item.id));
+            }}
+          >
             <div className="flex items-center gap-3">
               <div className="relative h-12 w-20 overflow-hidden rounded">
                 <Image alt={item.title} className="object-cover" fill sizes="80px" src={item.imageUrl} />
