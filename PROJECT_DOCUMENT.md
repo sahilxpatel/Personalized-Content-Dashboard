@@ -4,7 +4,7 @@ Project Document
 
 ## Paste URL
 
-Deployed project URL: **************https://personalized-content-dashboard-alpha.vercel.app/**************
+Deployed project URL: ******\*\*******https://personalized-content-dashboard-alpha.vercel.app/******\*\*******
 
 ## Overview
 
@@ -82,6 +82,14 @@ Create a local environment file with API keys before running the app in full mod
 ## Deployment
 
 The project includes support files for Vercel, Docker, and GitHub Actions CI.
+
+## Recent fixes & CI notes
+
+- CI workflow: GitHub Actions was updated to use Node.js 22 and `npm install` (instead of `npm ci`) to avoid lockfile/workspace install failures and to satisfy some dev-dependency engine constraints.
+- Build/export: a `pages/500` static error page was added to ensure Next.js produces the expected `500.html` during the build/export step on some hosting environments.
+- Security: `.env.local` was removed from the repo to avoid leaking keys; server-side proxy endpoints were added so secrets can live in hosting environment variables.
+
+If you redeploy on Vercel and see build caching issues, try clearing the Vercel build cache and re-deploying.
 
 ## Notes
 
