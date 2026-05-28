@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GripVertical, Heart } from "lucide-react";
+import { GripVertical } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { RefObject } from "react";
@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { useModal } from "@/components/ui/ModalProvider";
 import { useToast } from "@/components/ui/ToastProvider";
-import { syncFavorite, toggleFavorite } from "@/features/favorites/favoritesSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { ContentItem } from "@/types/content";
 
@@ -23,7 +22,6 @@ interface ContentCardProps {
 export const ContentCard = ({ item, dragHandleRef, isDragging = false }: ContentCardProps) => {
   const dispatch = useAppDispatch();
   const favorites = useAppSelector((state) => state.favorites.ids);
-  const isFavorite = favorites.includes(item.id);
   const { notify } = useToast();
   const { openModal } = useModal();
   const canOpenExternal = /^https?:\/\//.test(item.url);
@@ -95,21 +93,7 @@ export const ContentCard = ({ item, dragHandleRef, isDragging = false }: Content
               Drag this card to reorder it.
             </span>
           </div>
-          <button
-            aria-label={isFavorite ? "Remove favorite" : "Add favorite"}
-            data-testid={`favorite-btn-${item.id}`}
-            className="rounded-full p-1.5 text-foreground/70 transition-colors hover:bg-muted/60"
-            onClick={onFavorite}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                onFavorite();
-              }
-            }}
-            type="button"
-          >
-            <Heart className={isFavorite ? "fill-current text-rose-500" : ""} size={18} />
-          </button>
+          {/* favorite button removed per UX request */}
         </div>
         <h3 className="mt-2 line-clamp-2 text-sm font-semibold leading-snug text-foreground/95">{item.title}</h3>
         <p className="mt-1 mb-2 line-clamp-3 text-sm text-foreground/60">{item.description}</p>
